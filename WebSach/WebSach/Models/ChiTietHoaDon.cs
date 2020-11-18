@@ -12,6 +12,7 @@ namespace WebSach.Models
     {
 
         [Key]
+        public int id { get; set; }
         [MaxLength(50)]
         public string MaHoaDon { get; set; }
         [ForeignKey("MaHoaDon")]
