@@ -1,0 +1,88 @@
+﻿@model IEnumerable<websachs.Models.Sach>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LoaiSach.TenLoaiSach)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NhaXuatBan.TenNXB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenSach)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TacGia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GiaBan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoLuongTon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoTrang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.images)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NamXuatBan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoiDung)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoaiSach.TenLoaiSach)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NhaXuatBan.TenNXB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenSach)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TacGia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiaBan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoLuongTon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoTrang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.images)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NamXuatBan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoiDung)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaSach }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaSach }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaSach })
+        </td>
+    </tr>
+}
+
+</table>

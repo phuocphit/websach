@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace WebSach.Models
+namespace websachs.Models
 {
     [Table("HoaDons")]
     public class HoaDon
@@ -20,8 +20,8 @@ namespace WebSach.Models
         [MaxLength(50)]
         public string DiaChi { get; set; }
         [MaxLength(50)]
-        public string Email { get; set; }
-        [ForeignKey("Email")]
+        public string UserName { get; set; }
+        [ForeignKey("UserName")]
         public User User { get; set; }
     }
 }

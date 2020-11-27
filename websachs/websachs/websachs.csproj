@@ -8,12 +8,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{4102384F-A9AD-4529-89E3-17FA21C47D6F}</ProjectGuid>
+    <ProjectGuid>{547710FD-F102-4339-9AD0-2823FF8233B4}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WebSach</RootNamespace>
-    <AssemblyName>WebSach</AssemblyName>
+    <RootNamespace>websachs</RootNamespace>
+    <AssemblyName>websachs</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -128,18 +128,54 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HoaDonsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SachsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011201009569_add-table.cs" />
+    <Compile Include="Migrations\202011201009569_add-table.Designer.cs">
+      <DependentUpon>202011201009569_add-table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011201021073_update_table_User.cs" />
+    <Compile Include="Migrations\202011201021073_update_table_User.Designer.cs">
+      <DependentUpon>202011201021073_update_table_User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011201024367_update_table_User1.cs" />
+    <Compile Include="Migrations\202011201024367_update_table_User1.Designer.cs">
+      <DependentUpon>202011201024367_update_table_User1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011201028522_update_table_User2.cs" />
+    <Compile Include="Migrations\202011201028522_update_table_User2.Designer.cs">
+      <DependentUpon>202011201028522_update_table_User2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011211512173_update_table_User3.cs" />
+    <Compile Include="Migrations\202011211512173_update_table_User3.Designer.cs">
+      <DependentUpon>202011211512173_update_table_User3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011211514317_update_table_User4.cs" />
+    <Compile Include="Migrations\202011211514317_update_table_User4.Designer.cs">
+      <DependentUpon>202011211514317_update_table_User4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011250936231_delete_table_Role.cs" />
+    <Compile Include="Migrations\202011250936231_delete_table_Role.Designer.cs">
+      <DependentUpon>202011250936231_delete_table_Role.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011250939388_update_table_User5.cs" />
+    <Compile Include="Migrations\202011250939388_update_table_User5.Designer.cs">
+      <DependentUpon>202011250939388_update_table_User5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ChiTietHoaDon.cs" />
     <Compile Include="Models\DBcontext.cs" />
     <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\HoaDon.cs" />
     <Compile Include="Models\LoaiSach.cs" />
     <Compile Include="Models\NhaXuatBan.cs" />
-    <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Sach.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -155,6 +191,26 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDons\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDons\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDons\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDons\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDons\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Sachs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Sachs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Sachs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Sachs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Sachs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\Error.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -180,14 +236,12 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Users\Create.cshtml" />
-    <Content Include="Views\Users\Delete.cshtml" />
-    <Content Include="Views\Users\Details.cshtml" />
-    <Content Include="Views\Users\Edit.cshtml" />
-    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -201,6 +255,32 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202011201009569_add-table.resx">
+      <DependentUpon>202011201009569_add-table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011201021073_update_table_User.resx">
+      <DependentUpon>202011201021073_update_table_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011201024367_update_table_User1.resx">
+      <DependentUpon>202011201024367_update_table_User1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011201028522_update_table_User2.resx">
+      <DependentUpon>202011201028522_update_table_User2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011211512173_update_table_User3.resx">
+      <DependentUpon>202011211512173_update_table_User3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011211514317_update_table_User4.resx">
+      <DependentUpon>202011211514317_update_table_User4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011250936231_delete_table_Role.resx">
+      <DependentUpon>202011250936231_delete_table_Role.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011250939388_update_table_User5.resx">
+      <DependentUpon>202011250939388_update_table_User5.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -218,9 +298,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>57623</DevelopmentServerPort>
+          <DevelopmentServerPort>51410</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:57623/</IISUrl>
+          <IISUrl>http://localhost:51410/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
