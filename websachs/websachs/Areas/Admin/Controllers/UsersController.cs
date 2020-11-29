@@ -19,12 +19,20 @@ namespace websachs.Areas.Admin.Controllers
         // GET: Admin/Users
         public ActionResult Index()
         {
+            if (Session["UserName"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             return View(db.Users.ToList());
         }
 
         // GET: Admin/Users/Details/5
         public ActionResult Details(string id)
         {
+            if (Session["UserName"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -40,6 +48,10 @@ namespace websachs.Areas.Admin.Controllers
         // GET: Admin/Users/Create
         public ActionResult Create()
         {
+            if (Session["UserName"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             return View();
         }
 
@@ -77,6 +89,10 @@ namespace websachs.Areas.Admin.Controllers
         // GET: Admin/Users/Edit/5
         public ActionResult Edit(string id)
         {
+            if (Session["UserName"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -108,6 +124,10 @@ namespace websachs.Areas.Admin.Controllers
         // GET: Admin/Users/Delete/5
         public ActionResult Delete(string id)
         {
+            if (Session["UserName"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

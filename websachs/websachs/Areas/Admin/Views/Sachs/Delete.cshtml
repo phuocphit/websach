@@ -12,6 +12,14 @@
     <h4>Sach</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dd>
+            @Html.DisplayFor(model => model.TenSach)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenSach)
+        </dt>
+
         <dt>
             @Html.DisplayNameFor(model => model.LoaiSach.TenLoaiSach)
         </dt>
@@ -26,14 +34,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.NhaXuatBan.TenNXB)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TenSach)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TenSach)
         </dd>
 
         <dt>
@@ -61,22 +61,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.SoTrang)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SoTrang)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.images)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.images)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.NamXuatBan)
         </dt>
 
@@ -84,13 +68,6 @@
             @Html.DisplayFor(model => model.NamXuatBan)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NoiDung)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NoiDung)
-        </dd>
 
     </dl>
 

@@ -169,6 +169,14 @@
     <Compile Include="Migrations\202011250939388_update_table_User5.Designer.cs">
       <DependentUpon>202011250939388_update_table_User5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011290331263_update_table_Sach.cs" />
+    <Compile Include="Migrations\202011290331263_update_table_Sach.Designer.cs">
+      <DependentUpon>202011290331263_update_table_Sach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011290333080_update_table_Sach1.cs" />
+    <Compile Include="Migrations\202011290333080_update_table_Sach1.Designer.cs">
+      <DependentUpon>202011290333080_update_table_Sach1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ChiTietHoaDon.cs" />
     <Compile Include="Models\DBcontext.cs" />
@@ -205,12 +213,12 @@
     <Content Include="Areas\Admin\Views\HoaDons\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\HoaDons\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\Error.cshtml" />
     <Content Include="Areas\Admin\Views\Sachs\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Sachs\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Sachs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Sachs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Sachs\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\Error.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -242,6 +250,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Image\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -280,6 +289,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011250939388_update_table_User5.resx">
       <DependentUpon>202011250939388_update_table_User5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011290331263_update_table_Sach.resx">
+      <DependentUpon>202011290331263_update_table_Sach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011290333080_update_table_Sach1.resx">
+      <DependentUpon>202011290333080_update_table_Sach1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

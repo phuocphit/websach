@@ -17,6 +17,10 @@ namespace websachs.Areas.Admin.Controllers
         // GET: Admin/HoaDons
         public ActionResult Index()
         {
+            if (Session["UserName"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             var hoaDons = db.HoaDons.Include(h => h.User);
             return View(hoaDons.ToList());
         }
@@ -39,6 +43,10 @@ namespace websachs.Areas.Admin.Controllers
         // GET: Admin/HoaDons/Create
         public ActionResult Create()
         {
+            if (Session["UserName"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             ViewBag.UserName = new SelectList(db.Users, "UserName", "PassWord");
             return View();
         }
@@ -64,6 +72,10 @@ namespace websachs.Areas.Admin.Controllers
         // GET: Admin/HoaDons/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Session["UserName"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -97,6 +109,10 @@ namespace websachs.Areas.Admin.Controllers
         // GET: Admin/HoaDons/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Session["UserName"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

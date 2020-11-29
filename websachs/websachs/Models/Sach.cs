@@ -29,9 +29,8 @@ namespace websachs.Models
         public NhaXuatBan NhaXuatBan { get; set; }
         public int GiaBan { get; set; }
         public int SoLuongTon { get; set; }
-        public int SoTrang { get; set; }
-        public string images { get; set; }
         public DateTime NamXuatBan { get; set; }
-        public string NoiDung { get; set; }
+        public byte[] Image { get; set; }
+        public string UrlImage { get; set; }
     }
 }
