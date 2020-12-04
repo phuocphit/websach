@@ -10,71 +10,71 @@ using websachs.Models;
 
 namespace websachs.Areas.Admin.Controllers
 {
-    public class HoaDonsController : Controller
+    public class LoaiSachsController : Controller
     {
         private DBcontext db = new DBcontext();
 
-        // GET: Admin/HoaDons
+        // GET: Admin/LoaiSachs
         public ActionResult Index()
         {
             if (Session["UserName"] == null)
             {
                 return RedirectToAction("Login", "Home");
             }
-            var hoaDons = db.HoaDons.Include(h => h.User);
-            return View(hoaDons.ToList());
+
+            return View(db.LoaiSachs.ToList());
         }
 
-        // GET: Admin/HoaDons/Details/5
-        public ActionResult Details(int? id)
+        // GET: Admin/LoaiSachs/Details/5
+        public ActionResult Details(string id)
         {
             if (Session["UserName"] == null)
             {
                 return RedirectToAction("Login", "Home");
             }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HoaDon hoaDon = db.HoaDons.Find(id);
-            if (hoaDon == null)
+            LoaiSach loaiSach = db.LoaiSachs.Find(id);
+            if (loaiSach == null)
             {
                 return HttpNotFound();
             }
-            return View(hoaDon);
+            return View(loaiSach);
         }
 
-        // GET: Admin/HoaDons/Create
+        // GET: Admin/LoaiSachs/Create
         public ActionResult Create()
         {
             if (Session["UserName"] == null)
             {
                 return RedirectToAction("Login", "Home");
             }
-            ViewBag.UserName = new SelectList(db.Users, "UserName", "PassWord");
+
             return View();
         }
 
-        // POST: Admin/HoaDons/Create
+        // POST: Admin/LoaiSachs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaHoaDon,NgayHoaDon,TinhTrang,TongGiaTri,DiaChi,UserName")] HoaDon hoaDon)
+        public ActionResult Create([Bind(Include = "MaLoaiSach,TenLoaiSach")] LoaiSach loaiSach)
         {
             if (ModelState.IsValid)
             {
-                db.HoaDons.Add(hoaDon);
+                db.LoaiSachs.Add(loaiSach);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.UserName = new SelectList(db.Users, "UserName", "PassWord", hoaDon.UserName);
-            return View(hoaDon);
+            return View(loaiSach);
         }
 
-        // GET: Admin/HoaDons/Edit/5
-        public ActionResult Edit(int? id)
+        // GET: Admin/LoaiSachs/Edit/5
+        public ActionResult Edit(string id)
         {
             if (Session["UserName"] == null)
             {
@@ -85,58 +85,57 @@ namespace websachs.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HoaDon hoaDon = db.HoaDons.Find(id);
-            if (hoaDon == null)
+            LoaiSach loaiSach = db.LoaiSachs.Find(id);
+            if (loaiSach == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.UserName = new SelectList(db.Users, "UserName", "PassWord", hoaDon.UserName);
-            return View(hoaDon);
+            return View(loaiSach);
         }
 
-        // POST: Admin/HoaDons/Edit/5
+        // POST: Admin/LoaiSachs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaHoaDon,NgayHoaDon,TinhTrang,TongGiaTri,DiaChi,UserName")] HoaDon hoaDon)
+        public ActionResult Edit([Bind(Include = "MaLoaiSach,TenLoaiSach")] LoaiSach loaiSach)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(hoaDon).State = EntityState.Modified;
+                db.Entry(loaiSach).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.UserName = new SelectList(db.Users, "UserName", "PassWord", hoaDon.UserName);
-            return View(hoaDon);
+            return View(loaiSach);
         }
 
-        // GET: Admin/HoaDons/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: Admin/LoaiSachs/Delete/5
+        public ActionResult Delete(string id)
         {
             if (Session["UserName"] == null)
             {
                 return RedirectToAction("Login", "Home");
             }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HoaDon hoaDon = db.HoaDons.Find(id);
-            if (hoaDon == null)
+            LoaiSach loaiSach = db.LoaiSachs.Find(id);
+            if (loaiSach == null)
             {
                 return HttpNotFound();
             }
-            return View(hoaDon);
+            return View(loaiSach);
         }
 
-        // POST: Admin/HoaDons/Delete/5
+        // POST: Admin/LoaiSachs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(string id)
         {
-            HoaDon hoaDon = db.HoaDons.Find(id);
-            db.HoaDons.Remove(hoaDon);
+            LoaiSach loaiSach = db.LoaiSachs.Find(id);
+            db.LoaiSachs.Remove(loaiSach);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

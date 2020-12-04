@@ -32,6 +32,7 @@ namespace websachs.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Home");
             }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -51,6 +52,7 @@ namespace websachs.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Home");
             }
+
             ViewBag.MaLoaiSach = new SelectList(db.LoaiSachs, "MaLoaiSach", "TenLoaiSach");
             ViewBag.MaNXB = new SelectList(db.NhaXuatBans, "MaNXB", "TenNXB");
             return View();
@@ -94,6 +96,7 @@ namespace websachs.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Home");
             }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -149,6 +152,7 @@ namespace websachs.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Home");
             }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

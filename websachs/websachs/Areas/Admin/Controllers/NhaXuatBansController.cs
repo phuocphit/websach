@@ -10,71 +10,71 @@ using websachs.Models;
 
 namespace websachs.Areas.Admin.Controllers
 {
-    public class HoaDonsController : Controller
+    public class NhaXuatBansController : Controller
     {
         private DBcontext db = new DBcontext();
 
-        // GET: Admin/HoaDons
+        // GET: Admin/NhaXuatBans
         public ActionResult Index()
         {
             if (Session["UserName"] == null)
             {
                 return RedirectToAction("Login", "Home");
             }
-            var hoaDons = db.HoaDons.Include(h => h.User);
-            return View(hoaDons.ToList());
+
+            return View(db.NhaXuatBans.ToList());
         }
 
-        // GET: Admin/HoaDons/Details/5
-        public ActionResult Details(int? id)
+        // GET: Admin/NhaXuatBans/Details/5
+        public ActionResult Details(string id)
         {
             if (Session["UserName"] == null)
             {
                 return RedirectToAction("Login", "Home");
             }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HoaDon hoaDon = db.HoaDons.Find(id);
-            if (hoaDon == null)
+            NhaXuatBan nhaXuatBan = db.NhaXuatBans.Find(id);
+            if (nhaXuatBan == null)
             {
                 return HttpNotFound();
             }
-            return View(hoaDon);
+            return View(nhaXuatBan);
         }
 
-        // GET: Admin/HoaDons/Create
+        // GET: Admin/NhaXuatBans/Create
         public ActionResult Create()
         {
             if (Session["UserName"] == null)
             {
                 return RedirectToAction("Login", "Home");
             }
-            ViewBag.UserName = new SelectList(db.Users, "UserName", "PassWord");
+
             return View();
         }
 
-        // POST: Admin/HoaDons/Create
+        // POST: Admin/NhaXuatBans/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaHoaDon,NgayHoaDon,TinhTrang,TongGiaTri,DiaChi,UserName")] HoaDon hoaDon)
+        public ActionResult Create([Bind(Include = "MaNXB,TenNXB")] NhaXuatBan nhaXuatBan)
         {
             if (ModelState.IsValid)
             {
-                db.HoaDons.Add(hoaDon);
+                db.NhaXuatBans.Add(nhaXuatBan);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.UserName = new SelectList(db.Users, "UserName", "PassWord", hoaDon.UserName);
-            return View(hoaDon);
+            return View(nhaXuatBan);
         }
 
-        // GET: Admin/HoaDons/Edit/5
-        public ActionResult Edit(int? id)
+        // GET: Admin/NhaXuatBans/Edit/5
+        public ActionResult Edit(string id)
         {
             if (Session["UserName"] == null)
             {
@@ -85,58 +85,57 @@ namespace websachs.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HoaDon hoaDon = db.HoaDons.Find(id);
-            if (hoaDon == null)
+            NhaXuatBan nhaXuatBan = db.NhaXuatBans.Find(id);
+            if (nhaXuatBan == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.UserName = new SelectList(db.Users, "UserName", "PassWord", hoaDon.UserName);
-            return View(hoaDon);
+            return View(nhaXuatBan);
         }
 
-        // POST: Admin/HoaDons/Edit/5
+        // POST: Admin/NhaXuatBans/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaHoaDon,NgayHoaDon,TinhTrang,TongGiaTri,DiaChi,UserName")] HoaDon hoaDon)
+        public ActionResult Edit([Bind(Include = "MaNXB,TenNXB")] NhaXuatBan nhaXuatBan)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(hoaDon).State = EntityState.Modified;
+                db.Entry(nhaXuatBan).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.UserName = new SelectList(db.Users, "UserName", "PassWord", hoaDon.UserName);
-            return View(hoaDon);
+            return View(nhaXuatBan);
         }
 
-        // GET: Admin/HoaDons/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: Admin/NhaXuatBans/Delete/5
+        public ActionResult Delete(string id)
         {
             if (Session["UserName"] == null)
             {
                 return RedirectToAction("Login", "Home");
             }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HoaDon hoaDon = db.HoaDons.Find(id);
-            if (hoaDon == null)
+            NhaXuatBan nhaXuatBan = db.NhaXuatBans.Find(id);
+            if (nhaXuatBan == null)
             {
                 return HttpNotFound();
             }
-            return View(hoaDon);
+            return View(nhaXuatBan);
         }
 
-        // POST: Admin/HoaDons/Delete/5
+        // POST: Admin/NhaXuatBans/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(string id)
         {
-            HoaDon hoaDon = db.HoaDons.Find(id);
-            db.HoaDons.Remove(hoaDon);
+            NhaXuatBan nhaXuatBan = db.NhaXuatBans.Find(id);
+            db.NhaXuatBans.Remove(nhaXuatBan);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

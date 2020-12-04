@@ -10,22 +10,22 @@ using websachs.Models;
 
 namespace websachs.Areas.Admin.Controllers
 {
-    public class HoaDonsController : Controller
+    public class ChiTietHoaDonsController : Controller
     {
         private DBcontext db = new DBcontext();
 
-        // GET: Admin/HoaDons
+        // GET: Admin/ChiTietHoaDons
         public ActionResult Index()
         {
             if (Session["UserName"] == null)
             {
                 return RedirectToAction("Login", "Home");
             }
-            var hoaDons = db.HoaDons.Include(h => h.User);
-            return View(hoaDons.ToList());
+            var chiTietHoaDons = db.ChiTietHoaDons.Include(c => c.HoaDon).Include(c => c.Sach);
+            return View(chiTietHoaDons.ToList());
         }
 
-        // GET: Admin/HoaDons/Details/5
+        // GET: Admin/ChiTietHoaDons/Details/5
         public ActionResult Details(int? id)
         {
             if (Session["UserName"] == null)
@@ -36,44 +36,48 @@ namespace websachs.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HoaDon hoaDon = db.HoaDons.Find(id);
-            if (hoaDon == null)
+            ChiTietHoaDon chiTietHoaDon = db.ChiTietHoaDons.Find(id);
+            if (chiTietHoaDon == null)
             {
                 return HttpNotFound();
             }
-            return View(hoaDon);
+            return View(chiTietHoaDon);
         }
 
-        // GET: Admin/HoaDons/Create
+        // GET: Admin/ChiTietHoaDons/Create
         public ActionResult Create()
         {
             if (Session["UserName"] == null)
             {
                 return RedirectToAction("Login", "Home");
             }
-            ViewBag.UserName = new SelectList(db.Users, "UserName", "PassWord");
+
+            ViewBag.MaHoaDon = new SelectList(db.HoaDons, "MaHoaDon", "TinhTrang");
+            ViewBag.MaSach = new SelectList(db.Sachs, "MaSach", "TenSach");
             return View();
         }
 
-        // POST: Admin/HoaDons/Create
+        // POST: Admin/ChiTietHoaDons/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaHoaDon,NgayHoaDon,TinhTrang,TongGiaTri,DiaChi,UserName")] HoaDon hoaDon)
+        public ActionResult Create([Bind(Include = "id,MaHoaDon,MaSach,SoLuong,DonGia,ThanhTien")] ChiTietHoaDon chiTietHoaDon)
         {
+            
             if (ModelState.IsValid)
             {
-                db.HoaDons.Add(hoaDon);
+                db.ChiTietHoaDons.Add(chiTietHoaDon);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.UserName = new SelectList(db.Users, "UserName", "PassWord", hoaDon.UserName);
-            return View(hoaDon);
+            ViewBag.MaHoaDon = new SelectList(db.HoaDons, "MaHoaDon", "TinhTrang", chiTietHoaDon.MaHoaDon);
+            ViewBag.MaSach = new SelectList(db.Sachs, "MaSach", "TenSach", chiTietHoaDon.MaSach);
+            return View(chiTietHoaDon);
         }
 
-        // GET: Admin/HoaDons/Edit/5
+        // GET: Admin/ChiTietHoaDons/Edit/5
         public ActionResult Edit(int? id)
         {
             if (Session["UserName"] == null)
@@ -85,58 +89,61 @@ namespace websachs.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HoaDon hoaDon = db.HoaDons.Find(id);
-            if (hoaDon == null)
+            ChiTietHoaDon chiTietHoaDon = db.ChiTietHoaDons.Find(id);
+            if (chiTietHoaDon == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.UserName = new SelectList(db.Users, "UserName", "PassWord", hoaDon.UserName);
-            return View(hoaDon);
+            ViewBag.MaHoaDon = new SelectList(db.HoaDons, "MaHoaDon", "TinhTrang", chiTietHoaDon.MaHoaDon);
+            ViewBag.MaSach = new SelectList(db.Sachs, "MaSach", "TenSach", chiTietHoaDon.MaSach);
+            return View(chiTietHoaDon);
         }
 
-        // POST: Admin/HoaDons/Edit/5
+        // POST: Admin/ChiTietHoaDons/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaHoaDon,NgayHoaDon,TinhTrang,TongGiaTri,DiaChi,UserName")] HoaDon hoaDon)
+        public ActionResult Edit([Bind(Include = "id,MaHoaDon,MaSach,SoLuong,DonGia,ThanhTien")] ChiTietHoaDon chiTietHoaDon)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(hoaDon).State = EntityState.Modified;
+                db.Entry(chiTietHoaDon).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.UserName = new SelectList(db.Users, "UserName", "PassWord", hoaDon.UserName);
-            return View(hoaDon);
+            ViewBag.MaHoaDon = new SelectList(db.HoaDons, "MaHoaDon", "TinhTrang", chiTietHoaDon.MaHoaDon);
+            ViewBag.MaSach = new SelectList(db.Sachs, "MaSach", "TenSach", chiTietHoaDon.MaSach);
+            return View(chiTietHoaDon);
         }
 
-        // GET: Admin/HoaDons/Delete/5
+        // GET: Admin/ChiTietHoaDons/Delete/5
         public ActionResult Delete(int? id)
         {
             if (Session["UserName"] == null)
             {
                 return RedirectToAction("Login", "Home");
             }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HoaDon hoaDon = db.HoaDons.Find(id);
-            if (hoaDon == null)
+            ChiTietHoaDon chiTietHoaDon = db.ChiTietHoaDons.Find(id);
+            if (chiTietHoaDon == null)
             {
                 return HttpNotFound();
             }
-            return View(hoaDon);
+            return View(chiTietHoaDon);
         }
 
-        // POST: Admin/HoaDons/Delete/5
+        // POST: Admin/ChiTietHoaDons/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            HoaDon hoaDon = db.HoaDons.Find(id);
-            db.HoaDons.Remove(hoaDon);
+            ChiTietHoaDon chiTietHoaDon = db.ChiTietHoaDons.Find(id);
+            db.ChiTietHoaDons.Remove(chiTietHoaDon);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

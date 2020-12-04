@@ -49,7 +49,7 @@ namespace websachs.Areas.Admin.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index");
+                        return RedirectToAction("Index", "Home", new { Area = "" });
                     }
 
                 }

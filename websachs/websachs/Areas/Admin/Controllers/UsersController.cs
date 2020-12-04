@@ -23,6 +23,7 @@ namespace websachs.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Home");
             }
+
             return View(db.Users.ToList());
         }
 
@@ -33,6 +34,7 @@ namespace websachs.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Home");
             }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -52,6 +54,7 @@ namespace websachs.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Home");
             }
+
             return View();
         }
 
@@ -93,6 +96,7 @@ namespace websachs.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Home");
             }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -128,6 +132,7 @@ namespace websachs.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Home");
             }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

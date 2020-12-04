@@ -52,6 +52,12 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -129,8 +135,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ChiTietHoaDonsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HoaDonsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoaiSachsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NhaXuatBansController.cs" />
     <Compile Include="Areas\Admin\Controllers\SachsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -193,6 +202,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -219,6 +229,21 @@
     <Content Include="Areas\Admin\Views\Sachs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Sachs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Sachs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSachs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSachs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSachs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSachs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiSachs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaXuatBans\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaXuatBans\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaXuatBans\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaXuatBans\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaXuatBans\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietHoaDons\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietHoaDons\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietHoaDons\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietHoaDons\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietHoaDons\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
