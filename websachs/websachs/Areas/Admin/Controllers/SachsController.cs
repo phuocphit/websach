@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using websachs.Models;
+using PagedList;
 
 namespace websachs.Areas.Admin.Controllers
 {
@@ -15,6 +16,7 @@ namespace websachs.Areas.Admin.Controllers
         private DBcontext db = new DBcontext();
 
         // GET: Admin/Sachs
+
         public ActionResult Index()
         {
             if (Session["UserName"] == null)
@@ -70,10 +72,10 @@ namespace websachs.Areas.Admin.Controllers
                 sach.Image = new byte[image.ContentLength]; // image stored in binary formate
                 image.InputStream.Read(sach.Image, 0, image.ContentLength);
                 string fileName = System.IO.Path.GetFileName(image.FileName);
-                string urlImage = Server.MapPath("/Image/" + fileName);
+                string urlImage = Server.MapPath("/images/" + fileName);
                 image.SaveAs(urlImage);
 
-                sach.UrlImage = "/Image/" + fileName;
+                sach.UrlImage = "/images/" + fileName;
             }
 
             if (ModelState.IsValid)
@@ -128,10 +130,10 @@ namespace websachs.Areas.Admin.Controllers
                         modifySach.Image = new byte[editImage.ContentLength]; // image stored in binary formate
                         editImage.InputStream.Read(modifySach.Image, 0, editImage.ContentLength);
                         string fileName = System.IO.Path.GetFileName(editImage.FileName);
-                        string urlImage = Server.MapPath("~/Image/" + fileName);
+                        string urlImage = Server.MapPath("~/images/" + fileName);
                         editImage.SaveAs(urlImage);
 
-                        modifySach.UrlImage = "Image/" + fileName;
+                        modifySach.UrlImage = "images/" + fileName;
                     }
                 }
                 db.Entry(modifySach).State = EntityState.Modified;
