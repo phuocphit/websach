@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -9,40 +8,41 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("SÁCH 24H", "Index", "Home", new { Area = "Admin" }, new { @class = "navbar-brand" })
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a href="#" class="navbar-brand"><img src="~/images/logo.png" alt="logo"></a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav">
+                <a href="#" class="nav-item nav-link active">@Html.ActionLink("Home", "Index", "Home")</a>
+
+                @if (Session["UserName"] == null)
+                {
+                    <div class="navbar-nav">
+                        <a href="#" class="nav-item nav-link">@Html.ActionLink("Login", "Login", "Home")</a>
+                    </div>
+                }
+                else
+                {
+                    <div class="navbar-nav">
+                        <a href="#" class="nav-item nav-link">@Html.ActionLink("Sach", "Index", "Sachs")</a>
+                    </div>
+                    <div class="navbar-nav">
+                        <a href="#" class="nav-item nav-link">@Html.ActionLink("User", "Index", "Users")</a>
+                    </div>
+                    <div class="navbar-nav">
+                        <a href="#" class="nav-item nav-link">@Html.ActionLink("Hóa Đơn", "Index", "HoaDons")</a>
+                    </div>
+                    <div class="navbar-nav">
+                        <a href="#" class="nav-item nav-link">@Html.ActionLink("Logout", "Logout", "Home")</a>
+                    </div>
+                }
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
 
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-
-
-                    @if (Session["UserName"] == null)
-                    {
-                        <li>@Html.ActionLink("Login", "Login", "Home")</li>
-                    }
-                    else
-                    {
-                        <li>@Html.ActionLink("Sach", "Index", "Sachs")</li>
-                        <li>@Html.ActionLink("User", "Index", "Users")</li>
-                        <li>@Html.ActionLink("Hóa Đơn", "Index", "HoaDons")</li>
-                        <li style="color: white; padding-top: 15px;">@Session["Email"]</li>
-                        <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
-
-                    }
-
-                </ul>
-            </div>
         </div>
-    </div>
+    </nav>
     <div class="container body-content">
         @RenderBody()
         <hr />
