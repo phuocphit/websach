@@ -22,6 +22,7 @@ namespace websachs.Models
         [MaxLength(50)]
         public string UserName { get; set; }
         [ForeignKey("UserName")]
-        public User User { get; set; }
+        public virtual User User { get; set; }
+
     }
 }

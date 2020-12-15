@@ -51,7 +51,7 @@ namespace websachs.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Home");
             }
-            ViewBag.UserName = new SelectList(db.Users, "UserName", "PassWord");
+            ViewBag.UserName = new SelectList(db.Users, "UserName", "Email");
             return View();
         }
 
@@ -69,7 +69,7 @@ namespace websachs.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.UserName = new SelectList(db.Users, "UserName", "PassWord", hoaDon.UserName);
+            ViewBag.UserName = new SelectList(db.Users, "UserName", "Email", hoaDon.UserName);
             return View(hoaDon);
         }
 
@@ -80,7 +80,6 @@ namespace websachs.Areas.Admin.Controllers
             {
                 return RedirectToAction("Login", "Home");
             }
-
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -90,7 +89,7 @@ namespace websachs.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.UserName = new SelectList(db.Users, "UserName", "PassWord", hoaDon.UserName);
+            ViewBag.UserName = new SelectList(db.Users, "UserName", "Email", hoaDon.UserName);
             return View(hoaDon);
         }
 
@@ -107,7 +106,7 @@ namespace websachs.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.UserName = new SelectList(db.Users, "UserName", "PassWord", hoaDon.UserName);
+            ViewBag.UserName = new SelectList(db.Users, "UserName", "Email", hoaDon.UserName);
             return View(hoaDon);
         }
 

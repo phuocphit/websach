@@ -7,13 +7,13 @@ namespace websachs.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class update_table_Sach1 : IMigrationMetadata
+    public sealed partial class update_table1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(update_table_Sach1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(update_table1));
         
         string IMigrationMetadata.Id
         {
-            get { return "202011290333080_update_table_Sach1"; }
+            get { return "202012151446567_update_table1"; }
         }
         
         string IMigrationMetadata.Source
