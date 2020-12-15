@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using websachs.Models;
+using PagedList;
 
 namespace websachs.Areas.Admin.Controllers
 {
@@ -15,15 +16,19 @@ namespace websachs.Areas.Admin.Controllers
         private DBcontext db = new DBcontext();
 
         // GET: Admin/NhaXuatBans
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
             if (Session["UserName"] == null)
             {
                 return RedirectToAction("Login", "Home");
             }
+            var pagesize = 10;
+            var model = db.NhaXuatBans.ToList();
+            int pageNumber = page ?? 1;
+            return View(model.ToPagedList(pageNumber, pagesize));
 
-            return View(db.NhaXuatBans.ToList());
         }
+        
 
         // GET: Admin/NhaXuatBans/Details/5
         public ActionResult Details(string id)

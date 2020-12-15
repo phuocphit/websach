@@ -1,4 +1,5 @@
-﻿@model IEnumerable<websachs.Models.NhaXuatBan>
+﻿@model PagedList.IPagedList<websachs.Models.NhaXuatBan>
+@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "Index";
@@ -13,22 +14,34 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.TenNXB)
+            MaNXB
+        </th>
+        <th>
+            TenNXB
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenNXB)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaNXB }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaNXB }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaNXB })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.MaNXB)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TenNXB)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.MaNXB }) |
+        @Html.ActionLink("Details", "Details", new { id = item.MaNXB }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.MaNXB })
+    </td>
+</tr>
+    }
 
 </table>
+
+<br />
+ Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index", "NhaXuatBans", new { page }))
