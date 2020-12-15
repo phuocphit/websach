@@ -1,4 +1,5 @@
-﻿@model IEnumerable<websachs.Models.LoaiSach>
+﻿@model PagedList.IPagedList<websachs.Models.LoaiSach>
+@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "Index";
@@ -13,22 +14,28 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.TenLoaiSach)
+            TenLoaiSach
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenLoaiSach)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaLoaiSach }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaLoaiSach }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaLoaiSach })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenLoaiSach)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaLoaiSach }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaLoaiSach }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaLoaiSach })
+            </td>
+        </tr>
+    }
 
 </table>
+
+<br />
+ Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index", "LoaiSachs", new { page }))

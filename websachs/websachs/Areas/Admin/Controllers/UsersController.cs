@@ -71,7 +71,8 @@ namespace websachs.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var check = db.Users.FirstOrDefault(s => s.Email == user.Email);
-                if (check == null)
+                var checkusername = db.Users.FirstOrDefault(s => s.UserName == user.UserName);
+                if (check == null && checkusername == null)
                 {
                     user.PassWord = GetMD5(user.PassWord);
                     db.Configuration.ValidateOnSaveEnabled = false;
@@ -81,7 +82,7 @@ namespace websachs.Areas.Admin.Controllers
                 }
                 else
                 {
-                    ViewBag.error = "Email already exists";
+                    ViewBag.error = "xin moi nhap lai";
                     return View();
                 }
             }
