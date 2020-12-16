@@ -196,10 +196,6 @@
     <Compile Include="Migrations\202012151458009_update_table2.Designer.cs">
       <DependentUpon>202012151458009_update_table2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202012151204347_user.cs" />
-    <Compile Include="Migrations\202012151204347_user.Designer.cs">
-      <DependentUpon>202012151204347_user.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ChiTietHoaDon.cs" />
     <Compile Include="Models\DBcontext.cs" />
@@ -462,9 +458,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012151458009_update_table2.resx">
       <DependentUpon>202012151458009_update_table2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012151204347_user.resx">
-      <DependentUpon>202012151204347_user.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

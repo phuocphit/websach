@@ -13,15 +13,6 @@
 <table class="table">
     <tr>
         <th>
-<<<<<<< HEAD
-            @Html.DisplayNameFor(model => model.UserName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PassWord)
-        </th>
-        <th>
-=======
->>>>>>> b40e46796320b6a5f16a09b454362186b0b4280f
             @Html.DisplayNameFor(model => model.Email)
         </th>
         <th>
@@ -38,29 +29,17 @@
 @foreach (var item in Model) {
 <tr>
     <td>
-<<<<<<< HEAD
-        @Html.DisplayFor(modelItem => item.UserName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.PassWord)
-    </td>
-    <td>
-=======
->>>>>>> b40e46796320b6a5f16a09b454362186b0b4280f
         @Html.DisplayFor(modelItem => item.Email)
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.RoleName)
     </td>
     <td>
-<<<<<<< HEAD
-=======
         @Html.DisplayFor(modelItem => item.PassWord)
     </td>
 
 
     <td>
->>>>>>> b40e46796320b6a5f16a09b454362186b0b4280f
         @Html.ActionLink("Edit", "Edit", new { id = item.UserName }) |
         @Html.ActionLink("Details", "Details", new { id = item.UserName }) |
         @Html.ActionLink("Delete", "Delete", new { id = item.UserName })
