@@ -24,5 +24,7 @@ namespace websachs.Models
         [ForeignKey("UserName")]
         public virtual User User { get; set; }
 
+
+
     }
 }
