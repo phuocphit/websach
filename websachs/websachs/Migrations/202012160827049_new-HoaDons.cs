@@ -3,7 +3,7 @@ namespace websachs.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class update_table2 : DbMigration
+    public partial class newHoaDons : DbMigration
     {
         public override void Up()
         {

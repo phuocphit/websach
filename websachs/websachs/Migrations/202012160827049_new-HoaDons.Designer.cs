@@ -6,14 +6,14 @@ namespace websachs.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class update_table_User4 : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
+    public sealed partial class newHoaDons : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(update_table_User4));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(newHoaDons));
         
         string IMigrationMetadata.Id
         {
-            get { return "202011211514317_update_table_User4"; }
+            get { return "202012160827049_new-HoaDons"; }
         }
         
         string IMigrationMetadata.Source
